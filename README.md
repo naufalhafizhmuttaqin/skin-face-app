@@ -8,7 +8,7 @@ Aplikasi web untuk memprediksi jenis kulit wajah dari sebuah foto menggunakan mo
 
 | Kelas | Keterangan |
 |---|---|
-| `berjerawat` | Kulit dengan jerawat |
+| `berjerawat` | Kulit berjerawat |
 | `berminyak` | Kulit berminyak |
 | `kering` | Kulit kering |
 | `normal` | Kulit normal |
