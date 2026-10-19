@@ -8,7 +8,7 @@ A web application that predicts a person's facial skin type from a photo using a
 
 | Class | Description |
 |---|---|
-| `berjerawat` | Acne-prone skin |
+| `berjerawat` | Acne skin |
 | `berminyak` | Oily skin |
 | `kering` | Dry skin |
 | `normal` | Normal skin |
