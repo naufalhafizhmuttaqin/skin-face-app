@@ -2,7 +2,7 @@
 
 A web application that predicts a person's facial skin type from a photo using a deep learning model (InceptionV3). Users simply upload a photo or take one with their camera, and the app returns the predicted skin type along with a confidence score.
 
-**🔗 Live demo:** https://YOUR-APP-NAME.streamlit.app
+**🔗 Live demo:** https://skin-face-type-detection.streamlit.app/
 
 ## Supported skin types
 
