@@ -25,6 +25,17 @@ def preprocess(img: Image.Image) -> np.ndarray:
 
 
 st.set_page_config(page_title="Deteksi Jenis Kulit Wajah", page_icon="🧴")
+
+# Tampilan kamera seperti cermin (selfie): kepala ke kiri -> di layar juga ke kiri
+st.markdown(
+    """
+    <style>
+    [data-testid="stCameraInput"] video,
+    [data-testid="stCameraInput"] img { transform: scaleX(-1); }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 st.title("🧴 Deteksi Jenis Kulit Wajah")
 st.caption("Unggah foto wajah close-up dengan cahaya cukup, tanpa filter/makeup tebal.")
 
@@ -38,8 +49,11 @@ with tab_camera:
 
 source = file or cam
 if source:
-    img = Image.open(source)
-    st.image(img, caption="Foto kamu", use_container_width=True)
+    img = ImageOps.exif_transpose(Image.open(source)).convert("RGB")
+    # Foto dari kamera ditampilkan seperti cermin agar sama dengan pratinjau,
+    # sedangkan model tetap memprediksi gambar aslinya.
+    shown = ImageOps.mirror(img) if source is cam else img
+    st.image(shown, caption="Foto kamu", use_container_width=True)
 
     with st.spinner("Menganalisis..."):
         proba = model.predict(preprocess(img), verbose=0)[0]
